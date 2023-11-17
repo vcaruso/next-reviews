@@ -4,13 +4,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <header>
+        <header style={{ border: '1px solid blue'}}>
           [header]
         </header>
         <main>
           {children}
         </main>
-        <footer>
+        <footer style={{ border: '1px solid blue'}}>
           [footer]
         </footer>
       </body>
