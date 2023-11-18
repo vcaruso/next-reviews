@@ -1,10 +1,12 @@
 import React from 'react'
+import Heading from '@/components/Heading';
 
 export default function HomePage() {
   console.log('[Homepage] rendering');
   return (
     <>
-        <h1>Indie gamer</h1>
+        <Heading>Indie gamer</Heading>
+        
         <p>
             Only the best indie games, reviewd for you.
         </p>

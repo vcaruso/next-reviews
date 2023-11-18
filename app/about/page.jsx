@@ -1,9 +1,10 @@
 import React from 'react'
+import Heading from '@/components/Heading'
 
 export default function AboutPage() {
   return (
     <>
-        <h1>About</h1>
+        <Heading>About</Heading>
         <p>
             A website created to learn Next.js.
         </p>

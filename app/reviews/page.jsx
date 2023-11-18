@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import Heading from '@/components/Heading'
 
 export default function ReviewsPage() {
   return (
     <>
-        <h1>Reviews</h1>
+        <Heading>Reviews</Heading>
         <ul>
             <li>
             <Link href="/reviews/stardew-valley">Stardew Valley</Link>
