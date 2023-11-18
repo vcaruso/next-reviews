@@ -18,7 +18,6 @@ export default function ReviewsPage() {
             <img src="/images/hollow-knight.jpg" width={320} height={180} className='rounded-t' />
             <h2 className='font-semibold font-orbitron py-1 text-center'>Hollow Knight</h2>
           </Link>
-
         </li>
       </ul >
     </>
