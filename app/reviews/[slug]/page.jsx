@@ -1,16 +1,18 @@
 import React from 'react'
 
 import Heading from '@/components/Heading';
-import { getReview } from '@/lib/reviews';
+import { getReview, getSlugs } from '@/lib/reviews';
 
 export async function generateStaticParams(){
-    return [
-      { slug: 'hellblade' },
-      { slug: 'hollow-knight' },
-    
-    ];
+    const slugs = await getSlugs();  
+  return slugs.map(slug => ({ slug }));
+}
 
-    
+export async function generateMetadata({params:{slug}}){
+  const review = await getReview(slug);
+  return {
+    title: review.title
+  };
 }
 
 export default async function ReviewPage({params:{slug}}) {
