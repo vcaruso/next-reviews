@@ -6,7 +6,8 @@ import ShareLinkButton from '@/components/ShareLinkButton';
 import ShareButtons from '@/components/ShareButtons';
 
 export async function generateStaticParams(){
-    const slugs = await getSlugs();  
+    const slugs = await getSlugs(); 
+    console.log('[ReviewPage | generatedStaticParams:', slugs) ;
   return slugs.map(slug => ({ slug }));
 }
 
@@ -21,10 +22,11 @@ export default async function ReviewPage({params:{slug}}) {
 
  
  const review = await getReview(slug);
- console.log('[ReviewPage] rendering', slug)
+
   
   return (
     <>
+        
         <Heading>{review.title}</Heading>
         <div className='flex gap-3 items-baseline'>
           <p className='italic pb-2'>{review.date}</p>

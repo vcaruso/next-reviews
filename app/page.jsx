@@ -7,7 +7,7 @@ import { getFeaturedReview } from '@/lib/reviews';
 
 export default async function HomePage() {
   var featured = await getFeaturedReview();
-  console.log(featured);
+  
   return (
     <>
         <Heading>Indie gamer</Heading>
@@ -29,7 +29,7 @@ export default async function HomePage() {
                 className='flex flex-col sm:flex-row'
               >
                 <img src={featured.image} width={320} height={180} className='rounded-t sm:rounded-l sm:rounded-r:none' />
-                <h2 className='font-semibold font-orbitron py-1 text-center sm:px-2'>Hollow Knight</h2>
+                <h2 className='font-semibold font-orbitron py-1 text-center sm:px-2'>{featured.title}</h2>
               </Link>
             </div>
           )
