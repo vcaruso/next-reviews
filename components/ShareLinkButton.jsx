@@ -12,7 +12,7 @@ export default function ShareLinkButton() {
     setClicked(true);
     setTimeout(()=>setClicked(false), 1500);
   };
-  console.log('[ShareLinkButton] rendering')
+  //console.log('[ShareLinkButton] rendering')
     return (
     <button onClick={handleClick}
         className='border flex gap-1 items-center

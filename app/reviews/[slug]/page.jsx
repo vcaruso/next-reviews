@@ -4,10 +4,11 @@ import Heading from '@/components/Heading';
 import { getReview, getSlugs } from '@/lib/reviews';
 import ShareLinkButton from '@/components/ShareLinkButton';
 import ShareButtons from '@/components/ShareButtons';
+import Image from 'next/image';
 
 export async function generateStaticParams(){
     const slugs = await getSlugs(); 
-    console.log('[ReviewPage | generatedStaticParams:', slugs) ;
+    //console.log('[ReviewPage | generatedStaticParams:', slugs) ;
   return slugs.map(slug => ({ slug }));
 }
 
@@ -28,12 +29,15 @@ export default async function ReviewPage({params:{slug}}) {
     <>
         
         <Heading>{review.title}</Heading>
+        <p className='font-semibold pb-3'>
+          {review.subtitle}
+        </p>
         <div className='flex gap-3 items-baseline'>
           <p className='italic pb-2'>{review.date}</p>
           <ShareLinkButton />
         </div>
         
-        <img src={review.image} width={640} height={360} className='mb-2 rounded' />
+        <Image src={review.image} width={640} height={360} className='mb-2 rounded' alt={review.title} priority/>
         <article dangerouslySetInnerHTML={{__html:review.body}}
           className='max-w-screen-sm prose prose-slate'
         
