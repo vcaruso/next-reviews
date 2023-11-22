@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 
 export default async function HomePage() {
-  var reviews = await getReviews(3);
+  const {reviews} = await getReviews(3);
   if(reviews.length === 0){
     return (
               <span>No still featured game</span>

@@ -3,6 +3,9 @@ import React from 'react'
 import Heading from '@/components/Heading'
 import { getReviews } from '@/lib/reviews'
 import Image from 'next/image'
+import PaginationBar from '@/components/PaginationBar'
+
+const PAGE_SIZE = 6;
 
 export const metadata = {
   title: 'Reviews'
@@ -10,13 +13,15 @@ export const metadata = {
 
 
 
-export default async function ReviewsPage() {
+export default async function ReviewsPage({searchParams}) {
 
-  const reviews = await getReviews(6);
-  
+  const page = parsePageParam(searchParams.page);
+  const {reviews, pageCount} = await getReviews( PAGE_SIZE ,page);
+  console.log('[ReviewsPage] rendering:', page);
   return (
     <>
       <Heading>Reviews</Heading>
+      <PaginationBar page={page} pageCount={pageCount} />
       <ul className='flex flex-row flex-wrap gap-3'>
         {
           reviews.map((review, index)=>(
@@ -35,4 +40,15 @@ export default async function ReviewsPage() {
     </>
 
   )
+}
+
+
+function parsePageParam(paramValue){
+  if(paramValue){
+    const page = parseInt(paramValue);
+    if(isFinite(paramValue) && page > 0 ){
+      return page;
+    }
+  }
+  return 1;
 }
