@@ -8,6 +8,8 @@ export const metadata = {
   title: 'Reviews'
 }
 
+
+
 export default async function ReviewsPage() {
 
   const reviews = await getReviews(6);
