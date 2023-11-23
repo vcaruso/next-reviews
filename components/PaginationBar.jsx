@@ -5,7 +5,7 @@ import { ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/20/solid'
 export default function PaginationBar({page,pageCount}) {
   return (
      
-      <div  className='flex gap-2 pb-3'>
+      <div  className='flex pt-2'>
         
           <PaginationLink href={`/reviews?page=${page -1}`} enabled={page > 1}>
                 <ChevronLeftIcon className='h-5 w-5' />
